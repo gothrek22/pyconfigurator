@@ -1,0 +1,39 @@
+[tool.poetry]
+name = "pyconfigurator"
+version = "0.1.0"
+description = "Configuration provider wrapper for multiple sources"
+authors = ["gothrek22 <gothrek22@gmail.com>"]
+license = "Apache License 2.0"
+readme = "README.md"
+repository = "https://github.com/gothrek22/pyconfigurator"
+keywords = ["Configuration",
+            "ArgParse",
+            "Env vars",
+            "Environment"]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+[tool.poetry.dev-dependencies]
+pytest = "^5.4.1"
+taskipy = "^1.2.1"
+pytest-cov = "^2.8.1"
+codecov = "^2.0.22"
+
+[tool.poetry.urls]
+issues = "https://github.com/gothrek22/pyconfigurator/issues"
+
+[tool.taskipy.tasks]
+deploy = "python3 utils/create_setup.py && poetry build"# && poetry publish"
+
+[tool.coverage.run]
+branch = true
+include = ["pyconfigurator/*"]
+omit = [
+    "*/utils/*.py",
+    "*/__init__.py",
+]
+[build-system]
+build-backend = "setuptools.build_meta:__legacy__"
+requires = ["setuptools"]
+
